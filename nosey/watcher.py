@@ -29,12 +29,16 @@ def watch(directory=None):
         raise ValueError('Directory not found: ' + directory)
     directory = os.path.abspath(directory)
 
-    print ' * Watching', directory
+    # Initial run
     event_handler = ChangeHandler()
     event_handler.run()
+
+    # Setup watchdog
     observer = Observer()
     observer.schedule(event_handler, path=directory, recursive=True)
     observer.start()
+
+    # Watch and run tests until interrupted by user
     try:
         while True:
             time.sleep(1)
