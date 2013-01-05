@@ -11,6 +11,7 @@ Usage:
 Options:
   -h --help         Show this help.
   --version         Show version.
+  -c --clear        Automatically clear the screen before each run.
 """
 
 import sys
@@ -26,6 +27,8 @@ def main(argv=None):
     usage = '\n\n\n'.join(__doc__.split('\n\n\n')[1:])
     version = 'Nosey ' + __version__
 
-    # Parse options and execute
+    # Parse options
     args = docopt(usage, argv=argv, version=version)
-    return watch(args['<directory>'])
+
+    # Execute
+    return watch(args['<directory>'], args['--clear'])
