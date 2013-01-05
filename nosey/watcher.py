@@ -5,17 +5,23 @@ from watchdog.observers import Observer
 from watchdog.events import FileSystemEventHandler
 
 
+default_extensions = ['.py']
+
+
 class ChangeHandler(FileSystemEventHandler):
     """Listens for changes to files and re-runs tests after each change."""
-    def __init__(self, directory=None, auto_clear=False):
+    def __init__(self, directory=None, auto_clear=False, extensions=[]):
         super(ChangeHandler, self).__init__()
         self.directory = os.path.abspath(directory or '.')
         self.auto_clear = auto_clear
+        self.extensions = extensions or default_extensions
 
     def on_any_event(self, event):
         if event.is_directory:
             return
-        self.run()
+        ext = os.path.splitext(event.src_path)[1].lower()
+        if ext in self.extensions:
+            self.run()
 
     def run(self):
         """Called when a file is changed to re-run the tests with nose."""
@@ -29,14 +35,14 @@ class ChangeHandler(FileSystemEventHandler):
         subprocess.call('nosetests', cwd=self.directory)
 
 
-def watch(directory=None, auto_clear=False):
+def watch(directory=None, auto_clear=False, extensions=[]):
     """Starts a server to render the specified file or directory containing a README."""
     if directory and not os.path.isdir(directory):
         raise ValueError('Directory not found: ' + directory)
     directory = os.path.abspath(directory)
 
     # Initial run
-    event_handler = ChangeHandler(directory, auto_clear)
+    event_handler = ChangeHandler(directory, auto_clear, extensions)
     event_handler.run()
 
     # Setup watchdog
