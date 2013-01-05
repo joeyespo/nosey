@@ -30,7 +30,7 @@ def watch(directory=None):
     directory = os.path.abspath(directory)
 
     # Initial run
-    event_handler = ChangeHandler()
+    event_handler = ChangeHandler(directory)
     event_handler.run()
 
     # Setup watchdog
