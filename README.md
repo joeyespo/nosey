@@ -2,7 +2,7 @@ Nosey -- Local continuous test runner
 =====================================
 
 Nosey a command-line application that watches your Python project for changes
-with Watchdog and runs your tests with nose.
+with [Watchdog][] and runs your tests with [nose][].
 
 With Nosey you know right away when you've broken the build, and how.
 
@@ -39,3 +39,7 @@ Contributing
    your feature idea or the bug you found
 2. Fork the repository
 3. Send a pull request
+
+
+[nose]: http://nose.readthedocs.org
+[watchdog]: http://packages.python.org/watchdog
