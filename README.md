@@ -1,10 +1,10 @@
-Nosey -- Local continuous test runner with nose and watchdog
-============================================================
+Nosey -- Local continuous test runner
+=====================================
 
-Nosey a command-line application for continuously running your Python tests
-with nose. Any changes are immediately detected and trigger a re-run of
-your tests. Nosey lets you know when you've broken your local build
-and gives a detailed report when you've broken any of your tests.
+Nosey a command-line application that watches your Python project for changes
+with Watchdog and runs your tests with nose.
+
+With Nosey you know right away when you've broken the build, and how.
 
 
 Installation
