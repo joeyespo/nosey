@@ -39,7 +39,7 @@ def read(fname):
 
 setup(
     name='nosey',
-    version='0.1.1',
+    version='0.1.2',
     description='Local continuous test runner with nose and watchdog.',
     long_description=__doc__,
     author='Joe Esposito',
