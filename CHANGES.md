@@ -1,6 +1,12 @@
 Nosey Changelog
 ===============
 
+Version 0.1.1 (2013-01-05)
+--------------------------
+
+- Nosey now watches for specific extensions.
+
+
 Version 0.1.0 (2013-01-05)
 --------------------------
 
