@@ -1,6 +1,12 @@
 Nosey Changelog
 ===============
 
+Version 0.1.3 (2014-02-17)
+--------------------------
+
+- Unpin and upgrade requirements
+
+
 Version 0.1.2 (2013-09-07)
 --------------------------
 
